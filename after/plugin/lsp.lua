@@ -1,3 +1,16 @@
+vim.api.nvim_create_augroup("AutoFormat", {})
+vim.api.nvim_create_autocmd(
+    "BufWritePre",
+    {
+        pattern = "*.go",
+        group = "AutoFormat",
+        callback = function ()
+            vim.cmd("%!gofumpt")
+            vim.cmd("write!")
+        end,
+    }
+)
+
 local lsp_zero = require('lsp-zero')
 
 lsp_zero.on_attach(function(client, bufnr)
