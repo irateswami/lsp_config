@@ -64,8 +64,8 @@ cmp.setup({
     }),
 })
 
-local copy_symbol_under_cursor = function()
-    local symbol = vim.fn.expand('<cword>')
-    vim.fn.setreg('+', symbol)
-end
+
+
+
+
 

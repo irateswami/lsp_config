@@ -6,6 +6,11 @@ vim.o.foldenable = true
 
 vim.o.foldmethod = 'indent'
 
+local copy_symbol_under_cursor = function()
+    local symbol = vim.fn.expand('<cword>')
+    vim.fn.setreg('+', symbol)
+end
+
 vim.api.nvim_create_user_command('CopySymbolName', copy_symbol_under_cursor, {})
 
 vim.api.nvim_set_keymap('n', '<leader>cs', ':CopySymbolName<CR>', { noremap = true, silent = true })
