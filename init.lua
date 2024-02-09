@@ -31,3 +31,8 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
         vim.cmd("normal! zM")
     end,
 })
+
+if vim.fn.has("persistent_undo") == 1 then
+    vim.o.undodir = vim.fn.expand("$HOME/.undodir")
+    vim.o.undofile = true
+end
