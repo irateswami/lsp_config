@@ -17,12 +17,16 @@ vim.api.nvim_set_keymap('n', '<leader>cs', ':CopySymbolName<CR>', { noremap = tr
 
 vim.api.nvim_set_keymap('n', '<leader>cp', ':let @+=expand("%:p")<CR>', { noremap = true, silent = true })
 
-local function copy_highlight_to_clipboard()
-  vim.cmd('normal! y')
-  vim.notify("Highlighted text copied to clipboard")
+-- Function to copy highlighted text to the "+ register (system clipboard)
+local function copy_to_system_clipboard()
+  vim.cmd('normal! \"+y')
 end
 
-vim.api.nvim_set_keymap('v', '<leader>y', ':lua copy_highlight_to_clipboard()<CR>', { noremap = true, silent = true })
+-- Make the function accessible globally
+_G.copy_to_system_clipboard = copy_to_system_clipboard
+
+-- Key mapping: Adjust '<leader>c' to your preferred shortcut
+vim.api.nvim_set_keymap('v', '<leader>c', ':lua copy_to_system_clipboard()<CR>', { noremap = true, silent = true })
 
 vim.api.nvim_create_autocmd("BufWinEnter", {
     pattern = "*",
