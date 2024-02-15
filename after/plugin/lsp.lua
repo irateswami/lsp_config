@@ -4,7 +4,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     pattern = "*.go",
     callback = function()
         local cursor_position = vim.api.nvim_win_get_cursor(0)
-        vim.cmd("%!gofumpt")
+        vim.cmd("silent %!gofumpt | goimports")
         vim.api.nvim_win_set_cursor(0, cursor_position)
     end
 })
