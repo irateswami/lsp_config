@@ -25,6 +25,7 @@ return require('packer').startup(function(use)
 			ts_update()
 		end
 	}
+    use("buoto/gotests-vim")
 	use("nvim-treesitter/playground")
 	use("theprimeagen/harpoon")
 	use("theprimeagen/refactoring.nvim")

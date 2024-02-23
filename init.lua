@@ -6,9 +6,7 @@ vim.o.foldenable = true
 
 vim.o.foldmethod = 'indent'
 
-local copy_symbol_under_cursor = function()
-    local symbol = vim.fn.expand('<cword>')
-    vim.fn.setreg('+', symbol)
+local copy_symbol_under_cursor = function() local symbol = vim.fn.expand('<cword>') vim.fn.setreg('+', symbol)
 end
 
 vim.api.nvim_create_user_command('CopySymbolName', copy_symbol_under_cursor, {})
@@ -40,3 +38,16 @@ if vim.fn.has("persistent_undo") == 1 then
     vim.o.undodir = vim.fn.expand("$HOME/.undodir")
     vim.o.undofile = true
 end
+
+local function copy_path_and_line()
+    local file_path = vim.fn.expand('%:p')  -- Get the full path of the current file
+    local line_num = vim.fn.line('.')       -- Get the current line number
+    local full_path_with_line = file_path .. ':' .. line_num  -- Concatenate path and line
+    vim.fn.setreg('+', full_path_with_line) -- Set the "+" register (system clipboard)
+end
+
+_G.copy_path_and_line = copy_path_and_line  -- Make the function globally accessible
+
+-- Set up the keymap to call the global function
+vim.api.nvim_set_keymap('n', '<leader>cfp', ':lua _G.copy_path_and_line()<CR>', { noremap = true, silent = true })
+
