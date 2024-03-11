@@ -58,12 +58,18 @@ return require('packer').startup(function(use)
 	}
 
 	use('onsails/lspkind.nvim')
-	use("folke/zen-mode.nvim")
-	use("github/copilot.vim")
-	use("eandrju/cellular-automaton.nvim")
-	use("laytan/cloak.nvim")
+	use('folke/zen-mode.nvim')
+	use('github/copilot.vim')
+	use('eandrju/cellular-automaton.nvim')
+	use('laytan/cloak.nvim')
     use({
-        "iamcco/markdown-preview.nvim",
-        run = function() vim.fn["mkdp#util#install"]() end,
+        'iamcco/markdown-preview.nvim',
+        run = function() vim.fn['mkdp#util#install']() end,
     })
+
+    use('mfussenegger/nvim-dap')
+    use('leoluz/nvim-dap-go')
+    use('rcarriga/nvim-dap-ui')
+    use('theHamsta/nvim-dap-virtual-text')
+    use('nvim-telescope/telescope-dap.nvim')
 end)
