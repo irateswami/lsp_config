@@ -13,6 +13,8 @@ vim.api.nvim_create_user_command('CopySymbolName', copy_symbol_under_cursor, {})
 
 vim.api.nvim_set_keymap('n', '<leader>cs', ':CopySymbolName<CR>', { noremap = true, silent = true })
 
+vim.api.nvim_set_keymap('n', '<leader>spc', ':Spectre<CR>', { noremap = true, silent = true })
+
 vim.api.nvim_set_keymap('n', '<leader>cp', ':let @+=expand("%:p")<CR>', { noremap = true, silent = true })
 
 -- Function to copy highlighted text to the "+ register (system clipboard)

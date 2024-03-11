@@ -57,6 +57,13 @@ return require('packer').startup(function(use)
 		}
 	}
 
+    use{
+        'nvim-pack/nvim-spectre',
+        requires = {
+            {'nvim-lua/plenary.nvim'},
+        }
+    }
+
 	use('onsails/lspkind.nvim')
 	use('folke/zen-mode.nvim')
 	use('github/copilot.vim')
