@@ -64,6 +64,9 @@ cmp.setup({
     }),
 })
 
+local lspconfig = require('lspconfig')
+lspconfig.htmx.setup{}
+
 
 
 
