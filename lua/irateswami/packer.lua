@@ -1,7 +1,6 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-	-- Packer can manage itself
 	use 'wbthomason/packer.nvim'
 
 	use {
@@ -80,4 +79,6 @@ return require('packer').startup(function(use)
     use('theHamsta/nvim-dap-virtual-text')
     use('nvim-telescope/telescope-dap.nvim')
 
+    use('mrcjkb/rustaceanvim')
+    use('stevearc/oil.nvim')
 end)
