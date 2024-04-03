@@ -13,7 +13,6 @@ local lsp_zero = require('lsp-zero')
 
 lsp_zero.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
-
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
     vim.keymap.set("n", "gc", function() vim.lsp.buf.references() end, opts)
     vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
@@ -65,10 +64,19 @@ cmp.setup({
 })
 
 local lspconfig = require('lspconfig')
+
 lspconfig.htmx.setup{}
 
-
-
-
+require("oil").setup({
+ default_file_explorer = true,
+  -- Id is automatically added at the beginning, and name at the end
+  -- See :help oil-columns
+  columns = {
+    "icon",
+    "permissions",
+    "size",
+    "mtime",
+  },
+})
 
 
