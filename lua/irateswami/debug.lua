@@ -2,8 +2,17 @@ local dap = require('dap')
 local dapui = require('dapui')
 local dapgo = require('dap-go')
 
-dapgo.setup()
 dapui.setup()
+dapgo.setup({
+  delve = {
+    path = "dlv",
+    initialize_timeout_sec = 20,
+    port = "38695",
+    args = {},
+    build_flags = "",
+    detached = true
+  },
+})
 
 dap.listeners.after.event_initialized["dapui_config"] = function()
     dapui.open()
@@ -25,3 +34,4 @@ vim.keymap.set("n", "<leader>dc", function() dap.continue() end, opts)
 
 -- go specific stuff
 vim.keymap.set("n", "<leader>dt", function() dapgo.debug_test() end, opts)
+vim.keymap.set("n", "<leader>dl", function() dapgo.debug_last_test() end, opts)
