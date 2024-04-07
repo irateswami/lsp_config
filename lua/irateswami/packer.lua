@@ -68,7 +68,6 @@ return require('packer').startup(function(use)
         } 
     }
 
-    use('mrcjkb/rustaceanvim')
     use 'buoto/gotests-vim'
 	use 'theprimeagen/harpoon'
 	use 'theprimeagen/refactoring.nvim'
