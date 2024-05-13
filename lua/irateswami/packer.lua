@@ -56,16 +56,16 @@ return require('packer').startup(function(use)
 
     use({
         'iamcco/markdown-preview.nvim',
-        run = function() vim.fn['mkdp#util#install']() 
+        run = function() vim.fn['mkdp#util#install']()
         end,
     })
 
-    use { 
-        "rcarriga/nvim-dap-ui", 
+    use {
+        "rcarriga/nvim-dap-ui",
         requires = {
-            "mfussenegger/nvim-dap", 
+            "mfussenegger/nvim-dap",
             "nvim-neotest/nvim-nio"
-        } 
+        }
     }
 
     use 'buoto/gotests-vim'

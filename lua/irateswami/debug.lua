@@ -34,13 +34,13 @@ end
 
 --vim.keymap.set("n", "", function() dapui.open() end, opts)
 vim.keymap.set("n", "<leader>DC", ':lua require("nvim-dap-projects").search_project_config()<CR>')
-vim.keymap.set("n", "<leader>db", function() dap.toggle_breakpoint() end, opts)
-vim.keymap.set("n", "<leader>dB", function() dap.set_breakpoint(vim.fn.input('Breakpoint Condition: ')) end, opts)
-vim.keymap.set("n", "<leader>dv", function() dap.step_over() end, opts)
-vim.keymap.set("n", "<leader>di", function() dap.step_into() end, opts)
-vim.keymap.set("n", "<leader>do", function() dap.step_out() end, opts)
-vim.keymap.set("n", "<leader>dc", function() dap.continue() end, opts)
+vim.keymap.set("n", "<leader>db", function() dap.toggle_breakpoint() end)
+vim.keymap.set("n", "<leader>dB", function() dap.set_breakpoint(vim.fn.input('Breakpoint Condition: ')) end)
+vim.keymap.set("n", "<leader>dv", function() dap.step_over() end)
+vim.keymap.set("n", "<leader>di", function() dap.step_into() end)
+vim.keymap.set("n", "<leader>do", function() dap.step_out() end)
+vim.keymap.set("n", "<leader>dc", function() dap.continue() end)
 
 -- go specific stuff
-vim.keymap.set("n", "<leader>dt", function() dapgo.debug_test() end, opts)
-vim.keymap.set("n", "<leader>dl", function() dapgo.debug_last_test() end, opts)
+vim.keymap.set("n", "<leader>dt", function() dapgo.debug_test() end)
+vim.keymap.set("n", "<leader>dl", function() dapgo.debug_last_test() end)
