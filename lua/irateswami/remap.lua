@@ -8,7 +8,22 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
-vim.keymap.set("n", "<leader>tn", "<cmd>tabnew | :Explore<CR>")
+
+-- tabs
+vim.api.nvim_set_keymap('n', '<leader>tn', ':tabnew<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>t<leader>', ':tabnext<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>tm', ':tabmove<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>tc', ':tabclose<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>to', ':tabonly<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>gt1', ':GoToTab 1<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>gt2', ':GoToTab 2<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>gt3', ':GoToTab 3<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>gt4', ':GoToTab 4<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>gt5', ':GoToTab 5<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>gt6', ':GoToTab 6<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>gt7', ':GoToTab 7<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>gt8', ':GoToTab 8<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>gt9', ':GoToTab 9<CR>', { noremap = true, silent = true })
 
 -- greatest remap ever
 vim.keymap.set("x", "<leader>p", [["_dP]])

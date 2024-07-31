@@ -17,10 +17,37 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   end
 })
 
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = {"javascript", "typescript", "javascriptreact", "typescriptreact", "*.ts"},
+  callback = function()
+      vim.cmd("EslintFixAll")
+      vim.cmd("Neoformat prettier")
+  end,
+})
+
+local function open_definition_in_new_tab()
+  local params = vim.lsp.util.make_position_params()
+  vim.lsp.buf_request(0, 'textDocument/definition', params, function(_, result, _, _)
+    if not result or vim.tbl_isempty(result) then
+      print("Definition not found")
+      return
+    end
+
+    if vim.tbl_islist(result) then
+      vim.cmd("tabnew")
+      vim.lsp.util.jump_to_location(result[1])
+    else
+      vim.cmd("tabnew")
+      vim.lsp.util.jump_to_location(result)
+    end
+  end)
+end
+
 local lsp_zero = require('lsp-zero')
 
 lsp_zero.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
+    vim.keymap.set("n", "tgd", open_definition_in_new_tab, opts)
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
     vim.keymap.set("n", "gc", function() vim.lsp.buf.references() end, opts)
     vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
