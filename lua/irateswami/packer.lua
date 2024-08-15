@@ -85,4 +85,5 @@ return require('packer').startup(function(use)
     use 'ldelossa/nvim-dap-projects'
     use 'sbdchd/neoformat'
     use 'nanozuki/tabby.nvim'
+    use 'MattesGroeger/vim-bookmarks'
 end)
