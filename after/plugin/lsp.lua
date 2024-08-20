@@ -18,7 +18,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = {"javascript", "typescript", "javascriptreact", "typescriptreact", "*.ts"},
+  pattern = {"javascript", "typescript", "javascriptreact", "typescriptreact", "*.ts", "*.tsx"},
   callback = function()
       vim.cmd("EslintFixAll")
       vim.cmd("Neoformat prettier")
